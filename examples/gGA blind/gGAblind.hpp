@@ -87,6 +87,12 @@ void reshape(int w, int h)
 		return ;
 	glViewport(0, 0, w, h);
 }
+void blindreshape(int w, int h)
+{
+	if(!getblindglutGetWindow())
+		return ;
+	glViewportBlind(0, 0, w, h);
+}
 
 void init_gui()
 {
