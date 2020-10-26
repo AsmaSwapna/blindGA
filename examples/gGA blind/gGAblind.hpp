@@ -26,6 +26,33 @@ void timer(int value )
 
 }
 
+void queryGUI()
+{
+	if(!glutGetWindow())
+		return ;
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	float r=float(gui_subject_R/255.0);
+	float g=float(gui_subject_G/255.0);
+	float b=float(gui_subject_B/255.0);
+	glClearColor(r,g,b,1.0f);
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glOrtho(0, 100, 0, 100, -1, 1);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	glColor3ub( 255, 255, 255 );
+	glEnableClientState( GL_VERTEX_ARRAY );
+	glEnableClientState( GL_COLOR_ARRAY );
+	glDisableClientState( GL_VERTEX_ARRAY );
+	glDisableClientState( GL_COLOR_ARRAY );
+
+	glFlush();
+	glutSwapBuffers();
+}
 void display()
 {
 	if(!glutGetWindow())
